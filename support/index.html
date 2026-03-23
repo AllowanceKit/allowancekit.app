@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support — AllowanceKit</title>
+<meta name="description" content="Get help with AllowanceKit. Answers to common questions about setup, syncing, kid mode, buckets, and more.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://allowancekit.app/support">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://allowancekit.app/support">
+<meta property="og:title" content="Support — AllowanceKit">
+<meta property="og:description" content="Get help with AllowanceKit. Answers to common questions about setup, syncing, kid mode, buckets, and more.">
+<meta name="theme-color" content="#7B8FD4">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<style>
+@font-face { font-family: 'Nunito'; font-weight: 400; font-style: normal; font-display: swap; src: url('/fonts/nunito-400.woff2') format('woff2'); }
+@font-face { font-family: 'Nunito'; font-weight: 600; font-style: normal; font-display: swap; src: url('/fonts/nunito-600.woff2') format('woff2'); }
+@font-face { font-family: 'Nunito'; font-weight: 700; font-style: normal; font-display: swap; src: url('/fonts/nunito-700.woff2') format('woff2'); }
+@font-face { font-family: 'Nunito'; font-weight: 800; font-style: normal; font-display: swap; src: url('/fonts/nunito-800.woff2') format('woff2'); }
+@font-face { font-family: 'DM Sans'; font-weight: 400; font-style: normal; font-display: swap; src: url('/fonts/dmsans-400.woff2') format('woff2'); }
+@font-face { font-family: 'DM Sans'; font-weight: 500; font-style: normal; font-display: swap; src: url('/fonts/dmsans-500.woff2') format('woff2'); }
+@font-face { font-family: 'DM Sans'; font-weight: 600; font-style: normal; font-display: swap; src: url('/fonts/dmsans-600.woff2') format('woff2'); }
+</style>
+<style>
+:root {
+  --periwinkle: #7B8FD4;
+  --periwinkle-dark: #5A6494;
+  --periwinkle-tint: #F0F2FA;
+  --sky: #A8C4F0;
+  --sky-tint: #EDF4FC;
+  --sky-dark: #2C4A7C;
+  --lavender-tint: #F5EEFB;
+  --lavender-dark: #4A2D6B;
+  --rose-tint: #FDF0F4;
+  --rose-dark: #6B2D3F;
+  --mint: #A8DEC6;
+  --mint-tint: #EDF8F2;
+  --mint-dark: #1E5E3F;
+  --text-primary: #2D2F36;
+  --text-secondary: #6B6F7B;
+  --text-tertiary: #9598A1;
+  --surface: #FAFBFD;
+  --border: #E5E7ED;
+  --font-display: 'Nunito', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-body); color: var(--text-primary); background: var(--surface); -webkit-font-smoothing: antialiased; }
+.container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+nav { border-bottom: 1px solid var(--border); padding: 16px 0; margin-bottom: 48px; }
+nav .container { display: flex; align-items: center; gap: 10px; }
+nav a { text-decoration: none; display: flex; align-items: center; gap: 10px; }
+nav svg { width: 28px; height: 28px; }
+nav span { font-family: var(--font-display); font-weight: 800; font-size: 16px; color: var(--text-primary); }
+nav span em { font-style: normal; color: var(--periwinkle); }
+h1 { font-family: var(--font-display); font-weight: 800; font-size: 32px; letter-spacing: -0.5px; margin-bottom: 8px; }
+.subtitle { font-size: 16px; color: var(--text-secondary); margin-bottom: 36px; line-height: 1.6; }
+h2 { font-family: var(--font-display); font-weight: 700; font-size: 20px; color: var(--periwinkle-dark); margin: 36px 0 16px; }
+p { font-size: 15px; line-height: 1.75; color: var(--text-secondary); margin-bottom: 16px; }
+strong { color: var(--text-primary); font-weight: 600; }
+a { color: var(--periwinkle); }
+
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 0; cursor: pointer; user-select: none;
+  font-family: var(--font-display); font-weight: 600; font-size: 15px;
+  color: var(--text-primary); gap: 12px;
+}
+.faq-q:hover { color: var(--periwinkle); }
+.faq-chevron {
+  width: 20px; height: 20px; flex-shrink: 0;
+  transition: transform 0.25s;
+  color: var(--text-tertiary);
+}
+.faq-item.open .faq-chevron { transform: rotate(180deg); }
+.faq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+.faq-item.open .faq-a { max-height: 400px; }
+.faq-a-inner { padding: 0 0 16px; font-size: 14px; line-height: 1.75; color: var(--text-secondary); }
+.faq-a-inner strong { color: var(--text-primary); }
+
+.section-badge {
+  display: inline-block; padding: 4px 12px; border-radius: 100px;
+  font-family: var(--font-display); font-weight: 700; font-size: 11px;
+  letter-spacing: 0.5px; margin-bottom: 12px;
+}
+
+.contact-card {
+  background: var(--periwinkle-tint); border-radius: 16px;
+  padding: 28px; margin: 36px 0;
+}
+.contact-card h3 {
+  font-family: var(--font-display); font-weight: 700; font-size: 18px;
+  color: var(--periwinkle-dark); margin-bottom: 8px;
+}
+.contact-card p { font-size: 14px; color: var(--periwinkle-dark); margin-bottom: 8px; }
+.contact-card p:last-child { margin-bottom: 0; }
+.contact-card a { color: var(--periwinkle-dark); font-weight: 600; }
+
+.tip-box {
+  border-radius: 12px; padding: 16px 20px; margin: 12px 0;
+}
+.tip-box p { margin: 0; font-size: 14px; }
+
+footer { margin-top: 60px; padding: 24px 0; border-top: 1px solid var(--border); text-align: center; }
+footer a { color: var(--periwinkle); text-decoration: none; font-size: 14px; }
+footer p { font-size: 12px; color: var(--text-tertiary); margin-top: 8px; }
+</style>
+</head>
+<body>
+<nav>
+  <div class="container">
+    <a href="/">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="46" fill="#7B8FD4"/>
+        <circle cx="50" cy="50" r="38" fill="#A8B8E8"/>
+        <circle cx="50" cy="50" r="30" fill="#EDF4FC"/>
+        <rect x="33" y="38" width="10" height="24" rx="3.5" fill="#A8C4F0"/>
+        <rect x="45" y="32" width="10" height="30" rx="3.5" fill="#F2B6C6"/>
+        <rect x="57" y="42" width="10" height="20" rx="3.5" fill="#A8DEC6"/>
+      </svg>
+      <span>Allowance<em>Kit</em></span>
+    </a>
+  </div>
+</nav>
+<div class="container">
+  <h1>Support</h1>
+  <p class="subtitle">Find answers to common questions below. If you need more help, scroll to the bottom to get in touch.</p>
+
+  <h2><span class="section-badge" style="background: var(--sky-tint); color: var(--sky-dark);">Getting started</span></h2>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      How do I set up my first child?
+      <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="faq-a"><div class="faq-a-inner">
+      When you open AllowanceKit for the first time, the onboarding wizard guides you through it. Enter your child's name, pick a colour, set the allowance amount and schedule, then configure the bucket split. The whole process takes under 60 seconds. You can add more children later from the parent dashboard.
+    </div></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      How do I add another child?
+      <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="faq-a"><div class="faq-a-inner">
+      Tap <strong>"+ Add child"</strong> on the parent dashboard (top right on iPhone, bottom of the sidebar on iPad). You'll go through the same quick setup flow: name, colour, allowance, buckets.
+    </div></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      Can I change the allowance amount or schedule later?
+      <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="faq-a"><div class="faq-a-inner">
+      Yes. Tap on a child's card to open their detail view, then tap the edit button to change their allowance amount, frequency, or deposit day. Changes take effect from the next scheduled deposit.
+    </div></div>
+  </div>
+
+  <h2><span class="section-badge" style="background: var(--lavender-tint); color: var(--lavender-dark);">Buckets</span></h2>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      What are buckets?
+      <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="faq-a"><div class="faq-a-inner">
+      Buckets divide your child's allowance into separate categories. The defaults are <strong>Save</strong>, <strong>Spend</strong>, and <strong>Give</strong>, but you can rename them, add new ones, or remove them. Each bucket has its own balance, and every allowance deposit is automatically split across buckets according to the percentages you set.
+    </div></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      Is there a limit on the number of buckets?
+      <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="faq-a"><div class="faq-a-inner">
+      No. You can create as many buckets as your family needs. Some families use just Save and Spend. Others add Holiday, College, Charity, or anything else. The percentages must add up to 100%.
+    </div></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      What happens to existing balances if I change the bucket percentages?
+      <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="faq-a"><div class="faq-a-inner">
+      Existing balances stay as they are. The new percentages only apply to future allowance deposits. We don't retroactively redistribute money between buckets.
+    </div></div>
+  </div>
+
+  <h2><span class="section-badge" style="background: var(--rose-tint); color: var(--rose-dark);">Kid mode</span></h2>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      How does kid mode work?
+      <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="faq-a"><div class="faq-a-inner">
+      Kid mode is a simplified, read-only view where children can see their balances and transaction history but can't edit anything. There are two ways to use it:
+      <br><br>
+      <strong>On a shared device:</strong> Tap "Kid Mode" on the parent dashboard. A picker shows all children's names (without balances). Each child taps their name, enters their passcode if one is set, and sees their own view.
+      <br><br>
+      <strong>On the child's own device:</strong> Share with a child from Settings. They receive an invite link, and their device auto-locks to their view permanently. No picker, no passcode needed.
+    </div></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      Can siblings see each other's balances?
+      <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="faq-a"><div class="faq-a-inner">
+      On shared devices, balances are hidden on the picker screen. If you set a 4-digit passcode for each child (in Settings), they'll need to enter it to see their own balance. On separate devices, each child only has access to their own data. Siblings can't see each other's information at all.
+    </div></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      My child forgot their passcode. How do I reset it?
+      <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="faq-a"><div class="faq-a-inner">
+      On the passcode screen, tap <strong>"Forgot code? Ask a parent."</strong> This prompts for the parent PIN, which bypasses the child's code. You can then change or remove their code in Settings &gt; Child Codes.
+    </div></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      How do I get back to parent mode?
+      <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="faq-a"><div class="faq-a-inner">
+      Tap the lock icon, then enter your 4-digit parent PIN (or use Face ID / Touch ID if enabled). This takes you back to the full parent dashboard.
+    </div></div>
+  </div>
+
+  <h2><span class="section-badge" style="background: var(--mint-tint); color: var(--mint-dark);">Syncing and sharing</span></h2>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      How does syncing work between my devices?
+      <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="faq-a"><div class="faq-a-inner">
+      If you're signed into the same iCloud account on multiple devices (e.g. your iPhone and iPad), AllowanceKit syncs automatically via iCloud. Changes you make on one device appear on the other within seconds. No setup needed.
+    </div></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      How do I share with my child's device?
+      <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="faq-a"><div class="faq-a-inner">
+      Go to <strong>Settings &gt; Sharing</strong> and tap "Share" next to the child's name. You'll be able to send an invite link via iMessage, AirDrop, or any other method. When your child opens the link on their device, AllowanceKit opens in kid mode showing only their data.
+    </div></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      Can both parents manage allowances?
+      <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="faq-a"><div class="faq-a-inner">
+      Yes, if both parents are signed into the same iCloud account, both devices will have full parent access with automatic sync. If you use separate iCloud accounts, one parent can share read-write access with the other (coming in a future update).
+    </div></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      I switched phones. Where's my data?
+      <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="faq-a"><div class="faq-a-inner">
+      As long as you're signed into the same iCloud account, your data will sync to your new device automatically when you install AllowanceKit. Nothing is lost.
+    </div></div>
+  </div>
+
+  <h2><span class="section-badge" style="background: var(--periwinkle-tint); color: var(--periwinkle-dark);">Allowance and transactions</span></h2>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      I didn't open the app for a few weeks. Did my child miss their allowance?
+      <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="faq-a"><div class="faq-a-inner">
+      No. AllowanceKit has a <strong>smart catch-up</strong> feature. When you open the app, it calculates all missed deposits and adds them with the correct historical dates. Your child's balance will always be accurate regardless of how often you open the app.
+    </div></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      How do I log a purchase my child made?
+      <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="faq-a"><div class="faq-a-inner">
+      Tap the <strong>+</strong> button on the child's detail view, switch to "Log spend," enter the amount, choose which bucket to deduct from, and optionally add a note (e.g. "Lego set"). The balance updates instantly.
+    </div></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      Can my child's balance go negative?
+      <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="faq-a"><div class="faq-a-inner">
+      By default, no. The app will prevent a spend that exceeds the bucket balance. If your family wants to allow borrowing against future allowances, you can enable negative balances in Settings.
+    </div></div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      Does AllowanceKit handle real money or connect to a bank?
+      <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="faq-a"><div class="faq-a-inner">
+      No. AllowanceKit is a <strong>tracking tool</strong>, not a bank or payment service. It keeps a virtual ledger of how much your child has earned and spent. The actual money stays with you (in cash, a bank account, or however your family handles it).
+    </div></div>
+  </div>
+
+  <div class="contact-card">
+    <h3>Still need help?</h3>
+    <p>We're a small team and we read every email. Send us a note and we'll get back to you as quickly as we can.</p>
+    <p><a href="mailto:hello&#64;allowancekit.app">hello&#64;allowancekit.app</a></p>
+    <p style="font-size: 12px; color: var(--periwinkle-dark); opacity: 0.7; margin-top: 8px;">Typical response time: within 24 hours</p>
+  </div>
+
+</div>
+<footer>
+  <a href="/">&larr; Back to AllowanceKit</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/security">Security</a>
+  <p>&copy; 2026 AllowanceKit</p>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-q').addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); item.classList.toggle('open'); }
+  });
+  item.querySelector('.faq-q').setAttribute('tabindex', '0');
+  item.querySelector('.faq-q').setAttribute('role', 'button');
+  item.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+  const observer = new MutationObserver(() => {
+    item.querySelector('.faq-q').setAttribute('aria-expanded', item.classList.contains('open'));
+  });
+  observer.observe(item, { attributes: true, attributeFilter: ['class'] });
+});
+</script>
+</body>
+</html>

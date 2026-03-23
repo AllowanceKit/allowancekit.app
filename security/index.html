@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security — AllowanceKit</title>
+<meta name="description" content="How AllowanceKit protects your family's data. On-device encryption, Keychain-stored passcodes, zero network exposure, and responsible disclosure.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://allowancekit.app/security">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://allowancekit.app/security">
+<meta property="og:title" content="Security — AllowanceKit">
+<meta property="og:description" content="How AllowanceKit protects your family's data. On-device encryption, Keychain-stored passcodes, zero network exposure.">
+<meta name="theme-color" content="#7B8FD4">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<style>
+@font-face { font-family: 'Nunito'; font-weight: 400; font-style: normal; font-display: swap; src: url('/fonts/nunito-400.woff2') format('woff2'); }
+@font-face { font-family: 'Nunito'; font-weight: 600; font-style: normal; font-display: swap; src: url('/fonts/nunito-600.woff2') format('woff2'); }
+@font-face { font-family: 'Nunito'; font-weight: 700; font-style: normal; font-display: swap; src: url('/fonts/nunito-700.woff2') format('woff2'); }
+@font-face { font-family: 'Nunito'; font-weight: 800; font-style: normal; font-display: swap; src: url('/fonts/nunito-800.woff2') format('woff2'); }
+@font-face { font-family: 'DM Sans'; font-weight: 400; font-style: normal; font-display: swap; src: url('/fonts/dmsans-400.woff2') format('woff2'); }
+@font-face { font-family: 'DM Sans'; font-weight: 500; font-style: normal; font-display: swap; src: url('/fonts/dmsans-500.woff2') format('woff2'); }
+@font-face { font-family: 'DM Sans'; font-weight: 600; font-style: normal; font-display: swap; src: url('/fonts/dmsans-600.woff2') format('woff2'); }
+</style>
+<style>
+:root {
+  --periwinkle: #7B8FD4;
+  --periwinkle-dark: #5A6494;
+  --periwinkle-tint: #F0F2FA;
+  --sky: #A8C4F0;
+  --sky-tint: #EDF4FC;
+  --sky-dark: #2C4A7C;
+  --mint: #A8DEC6;
+  --mint-tint: #EDF8F2;
+  --mint-dark: #1E5E3F;
+  --text-primary: #2D2F36;
+  --text-secondary: #6B6F7B;
+  --text-tertiary: #9598A1;
+  --surface: #FAFBFD;
+  --border: #E5E7ED;
+  --font-display: 'Nunito', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-body); color: var(--text-primary); background: var(--surface); -webkit-font-smoothing: antialiased; }
+.container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+nav { border-bottom: 1px solid var(--border); padding: 16px 0; margin-bottom: 48px; }
+nav .container { display: flex; align-items: center; gap: 10px; }
+nav a { text-decoration: none; display: flex; align-items: center; gap: 10px; }
+nav svg { width: 28px; height: 28px; }
+nav span { font-family: var(--font-display); font-weight: 800; font-size: 16px; color: var(--text-primary); }
+nav span em { font-style: normal; color: var(--periwinkle); }
+h1 { font-family: var(--font-display); font-weight: 800; font-size: 32px; letter-spacing: -0.5px; margin-bottom: 8px; }
+.updated { font-size: 14px; color: var(--text-tertiary); margin-bottom: 36px; }
+h2 { font-family: var(--font-display); font-weight: 700; font-size: 20px; color: var(--periwinkle-dark); margin: 32px 0 12px; }
+p { font-size: 15px; line-height: 1.75; color: var(--text-secondary); margin-bottom: 16px; }
+strong { color: var(--text-primary); font-weight: 600; }
+a { color: var(--periwinkle); }
+.highlight { background: var(--mint-tint); padding: 20px 24px; margin: 24px 0; border-left: 4px solid var(--mint); border-radius: 0; }
+.highlight p { margin: 0; color: var(--mint-dark); font-weight: 500; }
+.layer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+.layer-card { border-radius: 12px; padding: 16px; }
+.layer-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 15px; margin-bottom: 4px; }
+.layer-card p { font-size: 13px; margin-bottom: 0; }
+.report-box { background: var(--periwinkle-tint); border-radius: 12px; padding: 20px 24px; margin: 24px 0; }
+.report-box h3 { font-family: var(--font-display); font-weight: 700; font-size: 16px; color: var(--periwinkle-dark); margin-bottom: 8px; }
+.report-box p { font-size: 14px; color: var(--periwinkle-dark); margin-bottom: 8px; }
+.report-box p:last-child { margin-bottom: 0; }
+.report-box a { color: var(--periwinkle-dark); font-weight: 600; }
+footer { margin-top: 60px; padding: 24px 0; border-top: 1px solid var(--border); text-align: center; }
+footer a { color: var(--periwinkle); text-decoration: none; font-size: 14px; }
+footer p { font-size: 12px; color: var(--text-tertiary); margin-top: 8px; }
+@media (max-width: 600px) {
+  .layer-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="container">
+    <a href="/">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="46" fill="#7B8FD4"/>
+        <circle cx="50" cy="50" r="38" fill="#A8B8E8"/>
+        <circle cx="50" cy="50" r="30" fill="#EDF4FC"/>
+        <rect x="33" y="38" width="10" height="24" rx="3.5" fill="#A8C4F0"/>
+        <rect x="45" y="32" width="10" height="30" rx="3.5" fill="#F2B6C6"/>
+        <rect x="57" y="42" width="10" height="20" rx="3.5" fill="#A8DEC6"/>
+      </svg>
+      <span>Allowance<em>Kit</em></span>
+    </a>
+  </div>
+</nav>
+<div class="container">
+  <h1>Security</h1>
+  <p class="updated">Last updated: March 2026</p>
+
+  <div class="highlight">
+    <p>AllowanceKit has no servers, no APIs, and no network endpoints. There is nothing to breach because your data never leaves your devices.</p>
+  </div>
+
+  <h2>Architecture overview</h2>
+  <p>AllowanceKit uses a <strong>zero-server architecture</strong>. All data is stored locally on your device using Apple's SwiftData framework and optionally synced to your personal iCloud account via Apple's CloudKit. We do not operate any servers, databases, or APIs. There is no backend to compromise.</p>
+
+  <div class="layer-grid">
+    <div class="layer-card" style="background: var(--sky-tint);">
+      <h3 style="color: var(--sky-dark);">On-device storage</h3>
+      <p style="color: var(--sky-dark);">All allowance data is stored in your device's encrypted storage via SwiftData. Protected by your device passcode, Face ID, or Touch ID.</p>
+    </div>
+    <div class="layer-card" style="background: var(--periwinkle-tint);">
+      <h3 style="color: var(--periwinkle-dark);">iCloud sync</h3>
+      <p style="color: var(--periwinkle-dark);">Data syncs through Apple's CloudKit infrastructure using end-to-end encryption. We have no access to your iCloud account or its contents.</p>
+    </div>
+    <div class="layer-card" style="background: var(--mint-tint);">
+      <h3 style="color: var(--mint-dark);">Passcode storage</h3>
+      <p style="color: var(--mint-dark);">Parent PINs and child passcodes are stored in the iOS Keychain, which is hardware-encrypted and isolated from other apps.</p>
+    </div>
+    <div class="layer-card" style="background: var(--surface); border: 1px solid var(--border);">
+      <h3>No network calls</h3>
+      <p>AllowanceKit makes zero network requests to our servers (we don't have any). The only network activity is iCloud sync, handled entirely by Apple.</p>
+    </div>
+  </div>
+
+  <h2>What we don't have</h2>
+  <p>It's worth being explicit about what AllowanceKit does <strong>not</strong> have, because each of these is a common attack surface in other apps:</p>
+  <p><strong>No user accounts.</strong> There are no email addresses, passwords, or credentials stored anywhere. Nothing to leak in a breach.</p>
+  <p><strong>No server or database.</strong> There is no backend system that could be compromised. We don't operate infrastructure.</p>
+  <p><strong>No API endpoints.</strong> There are no web-facing services to exploit. The app communicates only with Apple's iCloud.</p>
+  <p><strong>No third-party SDKs.</strong> No analytics (Firebase, Mixpanel), no crash reporting (Sentry, Crashlytics), no advertising SDKs. Zero third-party code that could introduce vulnerabilities or exfiltrate data.</p>
+  <p><strong>No payment processing.</strong> AllowanceKit tracks virtual allowance balances. No bank accounts, credit cards, or real money flows through the app. Payment for the app itself is handled entirely by Apple's App Store.</p>
+
+  <h2>iCloud sharing security</h2>
+  <p>When a parent shares a child's allowance data with the child's device, this uses Apple's CloudKit sharing infrastructure. The share is scoped to a single child's data zone, so:</p>
+  <p><strong>Sibling isolation.</strong> Each child's data lives in its own CloudKit zone. Sharing with one child's device does not expose another child's data.</p>
+  <p><strong>Read-only access.</strong> The child's device receives read-only access. It cannot modify balances, create transactions, or change settings.</p>
+  <p><strong>Apple-managed invitations.</strong> Share invitations use Apple's standard UICloudSharingController. The invite link is delivered via iMessage, AirDrop, or another method chosen by the parent. We have no visibility into this process.</p>
+  <p><strong>Revocable.</strong> The parent can stop sharing at any time from Settings, which immediately removes access from the child's device.</p>
+
+  <h2>On-device passcodes</h2>
+  <p>AllowanceKit offers two types of passcodes, both stored in the <strong>iOS Keychain</strong>:</p>
+  <p><strong>Parent PIN (4 digits).</strong> Required to exit kid mode, access settings, and manage allowances. Optionally bypassed with Face ID or Touch ID. Stored in the Keychain keyed to the app, never in SwiftData or synced to iCloud.</p>
+  <p><strong>Child passcodes (4 digits, optional).</strong> Set per child to prevent sibling snooping on shared devices. Stored in the Keychain keyed by child identifier. Not synced to iCloud, so they are device-specific.</p>
+  <p>These passcodes are <strong>not security credentials</strong> in the traditional sense. They are family-level access controls designed to keep siblings honest, not to protect against sophisticated attackers. A determined user with physical access to an unlocked device could bypass them. Device-level security (device passcode, Face ID, Touch ID) is the real security boundary.</p>
+
+  <h2>Dependencies and supply chain</h2>
+  <p>AllowanceKit uses <strong>only first-party Apple frameworks</strong>: SwiftUI, SwiftData, CloudKit, and Security (Keychain). There are no third-party dependencies, no CocoaPods, no Swift packages from external sources. This eliminates supply-chain attack vectors entirely.</p>
+
+  <h2>Website security</h2>
+  <p>This website is a static site with no backend, no database, no JavaScript that processes user data, and no cookies. Fonts are self-hosted. No third-party requests are made. The site is served over HTTPS (enforced by the .app TLD, which is on the HSTS preload list).</p>
+
+  <div class="report-box">
+    <h3>Responsible disclosure</h3>
+    <p>If you discover a security issue in AllowanceKit or this website, please report it to us so we can address it promptly.</p>
+    <p>Email: <a href="mailto:security&#64;allowancekit.app">security&#64;allowancekit.app</a></p>
+    <p>We aim to acknowledge reports within 48 hours and provide a resolution timeline within 7 days. We do not currently offer a bug bounty programme, but we deeply appreciate responsible disclosure and will credit researchers (with their permission) in our release notes.</p>
+  </div>
+
+  <h2>Questions</h2>
+  <p>If you have any questions about our security practices, please contact us at <strong>hello&#64;allowancekit.app</strong>.</p>
+</div>
+<footer>
+  <a href="/">&larr; Back to AllowanceKit</a> &middot; <a href="/support">Support</a> &middot; <a href="/privacy">Privacy</a>
+  <p>&copy; 2026 AllowanceKit</p>
+</footer>
+</body>
+</html>
