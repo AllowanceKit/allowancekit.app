@@ -139,7 +139,7 @@ footer p { font-size: 12px; color: var(--text-tertiary); margin-top: 8px; }
 
   <h2>On-device passcodes</h2>
   <p>AllowanceKit offers two types of passcodes, both stored in the <strong>iOS Keychain</strong>:</p>
-  <p><strong>Parent PIN (4 digits).</strong> Required to exit kid mode, access settings, and manage allowances. Optionally bypassed with Face ID or Touch ID. Stored in the Keychain keyed to the app, never in SwiftData or synced to iCloud.</p>
+  <p><strong>Parent PIN (4 digits).</strong> Required to exit kid mode, access settings, and manage allowances. Stored in the Keychain keyed to the app, never in SwiftData or synced to iCloud.</p>
   <p><strong>Child passcodes (4 digits, optional).</strong> Set per child to prevent sibling snooping on shared devices. Stored in the Keychain keyed by child identifier. Not synced to iCloud, so they are device-specific.</p>
   <p>These passcodes are <strong>not security credentials</strong> in the traditional sense. They are family-level access controls designed to keep siblings honest, not to protect against sophisticated attackers. A determined user with physical access to an unlocked device could bypass them. Device-level security (device passcode, Face ID, Touch ID) is the real security boundary.</p>
 
