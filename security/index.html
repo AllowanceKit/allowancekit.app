@@ -128,7 +128,7 @@ footer p { font-size: 12px; color: var(--text-tertiary); margin-top: 8px; }
   <p><strong>No server or database.</strong> There is no backend system that could be compromised. We don't operate infrastructure.</p>
   <p><strong>No API endpoints.</strong> There are no web-facing services to exploit. The app communicates only with Apple's iCloud.</p>
   <p><strong>No third-party SDKs.</strong> No analytics (Firebase, Mixpanel), no crash reporting (Sentry, Crashlytics), no advertising SDKs. Zero third-party code that could introduce vulnerabilities or exfiltrate data.</p>
-  <p><strong>No payment processing.</strong> AllowanceKit tracks virtual allowance balances. No bank accounts, credit cards, or real money flows through the app. Payment for the app itself is handled entirely by Apple's App Store.</p>
+  <p><strong>No payment processing.</strong> AllowanceKit tracks virtual allowance balances. No bank accounts, credit cards, or real money flows through the app. The optional Premium upgrade is handled entirely by Apple's App Store in-app purchase system.</p>
 
   <h2>Child device security</h2>
   <p>When setting up a child's device, the parent generates an invite code within the app. This system provides several security benefits:</p>

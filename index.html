@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AllowanceKit — Simple Allowance Tracker for Families</title>
-<meta name="description" content="Set your child's allowance once, and AllowanceKit deposits it automatically. Kids check their own balance on their device. No ads, no subscriptions, no data collection. One-time purchase.">
+<meta name="description" content="A virtual allowance tracker for families. Set your child's allowance once, and AllowanceKit tracks it automatically. No bank accounts, no cards — just a simple ledger. Free to start.">
 <meta name="keywords" content="allowance tracker, kids allowance app, pocket money, chore tracker, family finance, kids money management, save spend give, allowance app iOS, kids savings">
 <meta name="author" content="AllowanceKit">
 <meta name="robots" content="index, follow">
@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://allowancekit.app/">
 <meta property="og:title" content="AllowanceKit — Simple Allowance Tracker for Families">
-<meta property="og:description" content="Set your child's allowance once, and AllowanceKit deposits it automatically. Kids check their own balance. No ads, no subscriptions. One-time purchase.">
+<meta property="og:description" content="A virtual allowance tracker for families. No bank accounts, no cards — just a simple ledger. Kids check their own balance. Free to start.">
 <meta property="og:image" content="https://allowancekit.app/images/og-image.png">
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
@@ -22,7 +22,7 @@
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AllowanceKit — Simple Allowance Tracker for Families">
-<meta name="twitter:description" content="Set your child's allowance once, and AllowanceKit deposits it automatically. Kids check their own balance. One-time purchase, no subscriptions.">
+<meta name="twitter:description" content="A virtual allowance tracker for families. No bank accounts, no cards — just a simple ledger. Kids check their own balance. Free to start.">
 <meta name="twitter:image" content="https://allowancekit.app/images/og-image.png">
 
 <meta name="apple-itunes-app" content="app-id=6761007578">
@@ -51,12 +51,22 @@
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "iOS 17+",
   "description": "A simple allowance tracker for families. Set your child's allowance once, and AllowanceKit deposits it automatically. Kids check their own balance on their device.",
-  "offers": {
-    "@type": "Offer",
-    "price": "2.99",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/InStock"
-  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Free",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "Premium",
+      "price": "4.99",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    }
+  ],
   "featureList": "Auto-recurring allowance, Save/Spend/Give buckets, Kid's own view, iCloud sync, Per-child passcodes, Native iPad support",
   "screenshot": "https://allowancekit.app/images/og-image.png",
   "url": "https://allowancekit.app",
@@ -309,13 +319,20 @@ nav .container {
 
 /* ─── PRICING ─── */
 .pricing { padding: 80px 0; }
+.pricing-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 24px; max-width: 800px; margin: 0 auto;
+}
 .price-card {
-  max-width: 480px; margin: 0 auto;
-  padding: 48px 40px; border-radius: 24px;
+  padding: 40px 32px; border-radius: 24px;
   background: #fff;
-  border: 2px solid var(--periwinkle);
-  text-align: center;
+  border: 2px solid var(--border);
   position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.04);
+  display: flex; flex-direction: column;
+}
+.price-card.featured {
+  border-color: var(--periwinkle);
   box-shadow: 0 16px 60px rgba(123,143,212,0.12);
 }
 .price-badge {
@@ -326,31 +343,47 @@ nav .container {
   letter-spacing: 0.5px;
   white-space: nowrap;
 }
+.price-name {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 20px; color: var(--text-primary); margin-bottom: 8px;
+}
 .price-amount {
   font-family: var(--font-display); font-weight: 800;
-  font-size: 56px; letter-spacing: -2px; margin: 16px 0 4px;
+  font-size: 48px; letter-spacing: -2px; margin-bottom: 4px;
 }
-.price-amount .currency { font-size: 28px; vertical-align: super; color: var(--text-secondary); }
-.price-period { font-size: 15px; color: var(--text-tertiary); margin-bottom: 28px; }
-.price-features { text-align: left; margin-bottom: 32px; }
+.price-amount .currency { font-size: 24px; vertical-align: super; color: var(--text-secondary); }
+.price-period { font-size: 14px; color: var(--text-tertiary); margin-bottom: 24px; }
+.price-features { text-align: left; margin-bottom: 28px; flex-grow: 1; }
 .price-feature {
-  display: flex; align-items: center; gap: 10px;
-  padding: 8px 0; font-size: 15px; color: var(--text-secondary);
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 8px 0; font-size: 14px; color: var(--text-secondary);
 }
 .price-feature::before {
-  content: ''; width: 20px; height: 20px; border-radius: 50%;
-  background: var(--mint-tint); flex-shrink: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%231E5E3F' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+  content: ''; width: 18px; height: 18px; border-radius: 50%;
+  background: var(--mint-tint); flex-shrink: 0; margin-top: 2px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%231E5E3F' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: center;
+}
+.price-feature.disabled { color: var(--text-tertiary); }
+.price-feature.disabled::before {
+  background: var(--border);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%239598A1' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E");
   background-repeat: no-repeat; background-position: center;
 }
 .btn-download-lg {
-  display: inline-flex; align-items: center; gap: 10px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   padding: 14px 36px; border-radius: 100px;
   background: var(--periwinkle); color: #fff;
   font-family: var(--font-display); font-size: 16px; font-weight: 700;
   text-decoration: none; transition: all 0.2s; border: none; cursor: pointer;
+  width: 100%;
 }
 .btn-download-lg:hover { background: var(--periwinkle-dark); transform: translateY(-1px); }
+.btn-download-lg.secondary {
+  background: transparent; color: var(--periwinkle);
+  border: 2px solid var(--periwinkle);
+}
+.btn-download-lg.secondary:hover { background: var(--periwinkle-tint); }
 .btn-app-store { display: inline-block; transition: transform 0.2s, opacity 0.2s; }
 .btn-app-store:hover { transform: translateY(-2px); opacity: 0.9; }
 .btn-app-store img { display: block; }
@@ -412,6 +445,7 @@ footer .container { display: flex; flex-direction: column; align-items: center; 
   .steps { grid-template-columns: 1fr 1fr; }
   .nav-links { gap: 20px; }
   .nav-links a:not(.btn-download) { display: none; }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
 }
 @media (max-width: 600px) {
   .hero h1 { font-size: 36px; }
@@ -419,8 +453,8 @@ footer .container { display: flex; flex-direction: column; align-items: center; 
   .features-grid { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
   .phone-frame { width: 240px; }
-  .price-card { padding: 36px 24px; }
-  .price-amount { font-size: 44px; }
+  .price-card { padding: 32px 24px; }
+  .price-amount { font-size: 40px; }
   .nav-logo span { font-size: 15px; }
   .nav-links { gap: 12px; }
   .btn-download { padding: 7px 12px; font-size: 13px; }
@@ -460,14 +494,14 @@ footer .container { display: flex; flex-direction: column; align-items: center; 
 <section class="hero">
   <div class="container">
     <div class="hero-content">
-      <div class="hero-badge anim anim-d1">One-time purchase, not a subscription</div>
+      <div class="hero-badge anim anim-d1">Free to start, no subscription</div>
       <h1 class="anim anim-d2">Allowance on <em>autopilot.</em></h1>
-      <p class="anim anim-d3">Set your child's allowance once, and AllowanceKit deposits it automatically. Kids check their own balance on their device. That's it. That's the app.</p>
+      <p class="anim anim-d3">Set your child's allowance once, and AllowanceKit deposits it automatically. Kids check their own balance on their device. No bank accounts, no cards &mdash; just a simple virtual tracker.</p>
       <div class="hero-cta anim anim-d4">
         <a href="https://apps.apple.com/app/id6761007578" class="btn-app-store">
           <img src="/images/app-store-badge.svg" alt="Download on the App Store" height="54">
         </a>
-        <span class="hero-price"><strong>$2.99</strong> one-time &middot; <span style="color:var(--text-tertiary)">USD, varies by region</span></span>
+        <span class="hero-price"><strong>Free</strong> for 1 child &middot; <span style="color:var(--text-tertiary)">Upgrade anytime</span></span>
       </div>
     </div>
     <div class="hero-visual anim anim-d3">
@@ -512,7 +546,7 @@ footer .container { display: flex; flex-direction: column; align-items: center; 
     <div class="section-header">
       <div class="section-label">Features</div>
       <h2>Everything a family needs.<br>Nothing it doesn't.</h2>
-      <p>No debit cards. No investing. No gamification. Just allowance tracking that actually works.</p>
+      <p>No bank connections. No debit cards. No real money transfers. Just a virtual tracker that teaches kids to manage their allowance.</p>
     </div>
     <div class="features-grid">
       <div class="feature-card fc-sky">
@@ -552,10 +586,10 @@ footer .container { display: flex; flex-direction: column; align-items: center; 
       </div>
       <div class="feature-card fc-sky">
         <div class="feature-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
         </div>
-        <h3>Native on iPad</h3>
-        <p>Not a blown-up phone app. Proper sidebar navigation, two-column layouts, and full multitasking support. Built for the family iPad.</p>
+        <h3>Virtual tracking only</h3>
+        <p>AllowanceKit is a ledger, not a bank. No bank connections, no card numbers, no real money moves through the app. You handle the cash, we handle the math.</p>
       </div>
     </div>
   </div>
@@ -599,25 +633,47 @@ footer .container { display: flex; flex-direction: column; align-items: center; 
   <div class="container">
     <div class="section-header">
       <div class="section-label">Pricing</div>
-      <h2>Less than a coffee.</h2>
+      <h2>Start free. Upgrade when you're ready.</h2>
+      <p>No subscription. No recurring fees. Ever.</p>
     </div>
-    <div class="price-card">
-      <div class="price-badge">One-time purchase</div>
-      <div class="price-amount"><span class="currency">$</span>2.99</div>
-      <div class="price-period">USD &middot; Pay once, use forever &middot; Local pricing may vary</div>
-      <div class="price-features">
-        <div class="price-feature">Unlimited children</div>
-        <div class="price-feature">Auto-recurring allowances with catch-up</div>
-        <div class="price-feature">Save, spend, give buckets (unlimited)</div>
-        <div class="price-feature">Kid's own view with optional passcodes</div>
-        <div class="price-feature">iCloud sync across all devices</div>
-        <div class="price-feature">Native iPad experience</div>
-        <div class="price-feature">No ads, no tracking, no data collection</div>
-        <div class="price-feature">All future updates included</div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-name">Free</div>
+        <div class="price-amount"><span class="currency">$</span>0</div>
+        <div class="price-period">Free forever</div>
+        <div class="price-features">
+          <div class="price-feature">1 child</div>
+          <div class="price-feature">Up to 3 buckets</div>
+          <div class="price-feature">Auto-recurring allowances</div>
+          <div class="price-feature">Kid's own view with passcodes</div>
+          <div class="price-feature">iCloud sync across devices</div>
+          <div class="price-feature">Native iPad experience</div>
+          <div class="price-feature">No ads, no tracking</div>
+          <div class="price-feature disabled">Savings goals</div>
+          <div class="price-feature disabled">Child device locking</div>
+          <div class="price-feature disabled">Negative balances</div>
+        </div>
+        <a href="https://apps.apple.com/app/id6761007578" class="btn-download-lg secondary">Get Started</a>
       </div>
-      <a href="https://apps.apple.com/app/id6761007578" class="btn-app-store">
-        <img src="/images/app-store-badge.svg" alt="Download on the App Store" height="54">
-      </a>
+      <div class="price-card featured">
+        <div class="price-badge">Best value</div>
+        <div class="price-name">Premium</div>
+        <div class="price-amount"><span class="currency">$</span>4.99</div>
+        <div class="price-period">USD &middot; One-time purchase &middot; Local pricing may vary</div>
+        <div class="price-features">
+          <div class="price-feature">Unlimited children</div>
+          <div class="price-feature">Unlimited buckets</div>
+          <div class="price-feature">Auto-recurring allowances</div>
+          <div class="price-feature">Kid's own view with passcodes</div>
+          <div class="price-feature">iCloud sync across devices</div>
+          <div class="price-feature">Native iPad experience</div>
+          <div class="price-feature">No ads, no tracking</div>
+          <div class="price-feature">Savings goals for buckets</div>
+          <div class="price-feature">Child device locking</div>
+          <div class="price-feature">Allow negative balances</div>
+        </div>
+        <a href="https://apps.apple.com/app/id6761007578" class="btn-download-lg">Upgrade to Premium</a>
+      </div>
     </div>
   </div>
 </section>
