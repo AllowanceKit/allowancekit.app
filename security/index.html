@@ -97,20 +97,20 @@ footer p { font-size: 12px; color: var(--text-tertiary); margin-top: 8px; }
   <p class="updated">Last updated: March 2026</p>
 
   <div class="highlight">
-    <p>AllowanceKit has no servers, no APIs, and no network endpoints. There is nothing to breach because your data never leaves your devices.</p>
+    <p>AllowanceKit has no servers, no APIs, and no network endpoints. There is nothing to breach because your data never leaves your family's devices and Apple's iCloud.</p>
   </div>
 
   <h2>Architecture overview</h2>
-  <p>AllowanceKit uses a <strong>zero-server architecture</strong>. All data is stored locally on your device using Apple's SwiftData framework and optionally synced to your personal iCloud account via Apple's CloudKit. We do not operate any servers, databases, or APIs. There is no backend to compromise.</p>
+  <p>AllowanceKit uses a <strong>zero-server architecture</strong>. All data is stored locally on your device using Apple's Core Data framework and optionally synced to your personal iCloud account via Apple's CloudKit. We do not operate any servers, databases, or APIs. There is no backend to compromise.</p>
 
   <div class="layer-grid">
     <div class="layer-card" style="background: var(--sky-tint);">
       <h3 style="color: var(--sky-dark);">On-device storage</h3>
-      <p style="color: var(--sky-dark);">All allowance data is stored in your device's encrypted storage via SwiftData. Protected by your device passcode, Face ID, or Touch ID.</p>
+      <p style="color: var(--sky-dark);">All allowance data is stored in your device's encrypted storage via Core Data. Protected by your device passcode, Face ID, or Touch ID.</p>
     </div>
     <div class="layer-card" style="background: var(--periwinkle-tint);">
       <h3 style="color: var(--periwinkle-dark);">iCloud sync</h3>
-      <p style="color: var(--periwinkle-dark);">Data syncs through Apple's CloudKit infrastructure using end-to-end encryption. We have no access to your iCloud account or its contents.</p>
+      <p style="color: var(--periwinkle-dark);">Data syncs through Apple's CloudKit infrastructure, encrypted in transit and at rest. Family Sharing is invite-only and enforced by iCloud. We have no access to your iCloud account or its contents.</p>
     </div>
     <div class="layer-card" style="background: var(--mint-tint);">
       <h3 style="color: var(--mint-dark);">Passcode storage</h3>
@@ -130,12 +130,18 @@ footer p { font-size: 12px; color: var(--text-tertiary); margin-top: 8px; }
   <p><strong>No third-party SDKs.</strong> No analytics (Firebase, Mixpanel), no crash reporting (Sentry, Crashlytics), no advertising SDKs. Zero third-party code that could introduce vulnerabilities or exfiltrate data.</p>
   <p><strong>No payment processing.</strong> AllowanceKit tracks virtual allowance balances. No bank accounts, credit cards, or real money flows through the app. The optional Premium upgrade is handled entirely by Apple's App Store in-app purchase system.</p>
 
+  <h2>Family Sharing security</h2>
+  <p>Family Sharing is built on Apple's CloudKit sharing, the same mechanism behind shared iCloud notes and albums. It is designed so that access control is enforced by iCloud itself, not by the app's interface:</p>
+  <p><strong>Invite-only.</strong> Each share is tied to the specific Apple&nbsp;IDs the parent invites. A forwarded link does not grant access to anyone else. QR-code invites open joining only for the seconds the code is on the parent's screen, and lock again the moment someone joins.</p>
+  <p><strong>Per-child scope.</strong> Each child is shared separately. A child invited to their own view receives only their own data &mdash; never a sibling's.</p>
+  <p><strong>Server-enforced permissions.</strong> A child's own Apple&nbsp;ID joins as a <em>read-only participant</em>: iCloud rejects any write from their device. This is enforcement at Apple's infrastructure level, not a UI restriction.</p>
+  <p><strong>Owner control.</strong> The data stays in the inviting parent's iCloud account. They can change a person's permission, remove them, or stop sharing entirely at any time, which revokes access and removes the shared data from the other person's account.</p>
   <h2>Child device security</h2>
-  <p>When setting up a child's device, the parent generates an invite code within the app. This system provides several security benefits:</p>
+  <p>For a child's device signed into the parent's own Apple&nbsp;ID, the parent generates an invite code within the app. This system provides several security benefits:</p>
   <p><strong>Device lock.</strong> Once a child enters an invite code, their device is permanently locked to their read-only view. They cannot access parent mode or other children's data.</p>
   <p><strong>Read-only access.</strong> The child's device displays balances and transaction history but cannot modify balances, create transactions, or change settings.</p>
   <p><strong>Invite codes.</strong> Codes are single-use and stored securely. Once redeemed, the code cannot be used again.</p>
-  <p><strong>Parent override.</strong> If a parent needs to reclaim a child's device, they can generate a time-limited override code (expires in 5 minutes) to unlock it.</p>
+  <p><strong>Parent override.</strong> If a parent needs to reclaim a child's device, they can generate a time-limited override code (expires in 5 minutes) to unlock it. Override codes work on both same-account and Family Sharing devices.</p>
 
   <h2>On-device passcodes</h2>
   <p>AllowanceKit offers two types of passcodes, both stored in the <strong>iOS Keychain</strong>:</p>
@@ -144,7 +150,7 @@ footer p { font-size: 12px; color: var(--text-tertiary); margin-top: 8px; }
   <p>These passcodes are <strong>not security credentials</strong> in the traditional sense. They are family-level access controls designed to keep siblings honest, not to protect against sophisticated attackers. A determined user with physical access to an unlocked device could bypass them. Device-level security (device passcode, Face ID, Touch ID) is the real security boundary.</p>
 
   <h2>Dependencies and supply chain</h2>
-  <p>AllowanceKit uses <strong>only first-party Apple frameworks</strong>: SwiftUI, SwiftData, CloudKit, and Security (Keychain). There are no third-party dependencies, no CocoaPods, no Swift packages from external sources. This eliminates supply-chain attack vectors entirely.</p>
+  <p>AllowanceKit uses <strong>only first-party Apple frameworks</strong>: SwiftUI, Core Data, CloudKit, and Security (Keychain). There are no third-party dependencies, no CocoaPods, no Swift packages from external sources. This eliminates supply-chain attack vectors entirely.</p>
 
   <h2>Website security</h2>
   <p>This website is a static site with no backend, no database, no JavaScript that processes user data, and no cookies. Fonts are self-hosted. No third-party requests are made. The site is served over HTTPS (enforced by the .app TLD, which is on the HSTS preload list).</p>

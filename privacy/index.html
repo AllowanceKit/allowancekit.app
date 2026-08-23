@@ -75,14 +75,14 @@ footer p { font-size: 12px; color: var(--text-tertiary); margin-top: 8px; }
 </nav>
 <div class="container">
   <h1>Privacy policy</h1>
-  <p class="updated">Last updated: August 18, 2026</p>
+  <p class="updated">Last updated: August 23, 2026</p>
 
   <div class="highlight">
-    <p>AllowanceKit does not collect, store, or transmit any personal data. Your family's financial information never leaves your devices.</p>
+    <p>AllowanceKit does not collect, store, or transmit any personal data. Your family's financial information never leaves your family's devices and iCloud.</p>
   </div>
 
   <h2>What data does AllowanceKit store?</h2>
-  <p>AllowanceKit stores the information you enter — children's names, allowance amounts, bucket balances, and transaction history. This data is stored <strong>locally on your device</strong> using Apple's SwiftData framework and synced to <strong>your personal iCloud account</strong> using Apple's CloudKit.</p>
+  <p>AllowanceKit stores the information you enter — children's names, allowance amounts, bucket balances, and transaction history. This data is stored <strong>locally on your device</strong> using Apple's Core Data framework and synced to <strong>your personal iCloud account</strong> using Apple's CloudKit.</p>
   <p>We do not operate any servers. We do not have access to your iCloud account. Your data flows exclusively between your devices and Apple's iCloud infrastructure, which is governed by <strong>Apple's own privacy policy</strong>.</p>
 
   <h2>What data do we collect?</h2>
@@ -98,8 +98,10 @@ footer p { font-size: 12px; color: var(--text-tertiary); margin-top: 8px; }
   <h2>Do you share data with third parties?</h2>
   <p><strong>No.</strong> We cannot share what we do not have. No data is shared with advertisers, data brokers, partners, or any other third party.</p>
 
-  <h2>How does iCloud sync work?</h2>
-  <p>AllowanceKit syncs data across your devices using Apple's CloudKit private database. All data stays within your personal iCloud account. To set up a child's device, parents generate an invite code which locks that device to the child's read-only view. This process is managed entirely within the app using your iCloud account. We have no visibility into or control over your data.</p>
+  <h2>How does iCloud sync and Family Sharing work?</h2>
+  <p>AllowanceKit syncs data across your devices using Apple's CloudKit private database. All data stays within your personal iCloud account. We have no visibility into or control over your data.</p>
+  <p>If you choose to use <strong>Family Sharing</strong>, you can invite specific people &mdash; the other parent, or a child's own Apple&nbsp;ID &mdash; to see a child's allowance data. Sharing uses Apple's built-in CloudKit sharing: the data remains stored in <em>your</em> iCloud account, invited people access it through theirs, and only the people you explicitly invite can join. You can stop sharing or remove a person at any time, which removes their access. Nothing about sharing passes through us &mdash; it is Apple infrastructure end to end.</p>
+  <p>For a child's device signed into your own Apple&nbsp;ID, parents can instead generate an invite code which locks that device to the child's read-only view.</p>
 
   <h2>Can I export my data?</h2>
   <p><strong>Yes, anytime.</strong> In the app's Settings you can export your family's full transaction history as a CSV spreadsheet, or save a complete backup of your data as a JSON file. Both files are created entirely on your device and saved wherever you choose using Apple's Files interface &mdash; nothing is uploaded to us or anyone else. Exports never include your parent PIN or child passcodes. Exporting is free on every plan, because your family's data belongs to you.</p>
