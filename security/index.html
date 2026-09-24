@@ -94,10 +94,10 @@ footer p { font-size: 12px; color: var(--text-tertiary); margin-top: 8px; }
 </nav>
 <div class="container">
   <h1>Security</h1>
-  <p class="updated">Last updated: March 2026</p>
+  <p class="updated">Last updated: September 24, 2026</p>
 
   <div class="highlight">
-    <p>AllowanceKit has no servers, no APIs, and no network endpoints. There is nothing to breach because your data never leaves your family's devices and Apple's iCloud.</p>
+    <p>AllowanceKit does not operate a backend. Allowance data stays on your family's devices and in Apple's iCloud; Apple handles Premium purchases and subscription billing.</p>
   </div>
 
   <h2>Architecture overview</h2>
@@ -117,8 +117,8 @@ footer p { font-size: 12px; color: var(--text-tertiary); margin-top: 8px; }
       <p style="color: var(--mint-dark);">Parent PINs and child passcodes are stored in the iOS Keychain, which is hardware-encrypted and isolated from other apps.</p>
     </div>
     <div class="layer-card" style="background: var(--surface); border: 1px solid var(--border);">
-      <h3>No network calls</h3>
-      <p>AllowanceKit makes zero network requests to our servers (we don't have any). The only network activity is iCloud sync, handled entirely by Apple.</p>
+      <h3>Apple services</h3>
+      <p>AllowanceKit uses Apple's iCloud for sync and backups, and StoreKit for Premium purchases and subscription status. It makes no requests to a developer-operated backend.</p>
     </div>
   </div>
 
@@ -126,9 +126,9 @@ footer p { font-size: 12px; color: var(--text-tertiary); margin-top: 8px; }
   <p>It's worth being explicit about what AllowanceKit does <strong>not</strong> have, because each of these is a common attack surface in other apps:</p>
   <p><strong>No user accounts.</strong> There are no email addresses, passwords, or credentials stored anywhere. Nothing to leak in a breach.</p>
   <p><strong>No server or database.</strong> There is no backend system that could be compromised. We don't operate infrastructure.</p>
-  <p><strong>No API endpoints.</strong> There are no web-facing services to exploit. The app communicates only with Apple's iCloud.</p>
+  <p><strong>No API endpoints.</strong> There are no web-facing services to exploit. The app uses Apple's iCloud and App Store services.</p>
   <p><strong>No third-party SDKs.</strong> No analytics (Firebase, Mixpanel), no crash reporting (Sentry, Crashlytics), no advertising SDKs. Zero third-party code that could introduce vulnerabilities or exfiltrate data.</p>
-  <p><strong>No payment processing.</strong> AllowanceKit tracks virtual allowance balances. No bank accounts, credit cards, or real money flows through the app. The optional Premium upgrade is handled entirely by Apple's App Store in-app purchase system.</p>
+  <p><strong>No payment processing.</strong> AllowanceKit tracks virtual allowance balances. No bank accounts, credit cards, or real money flows through the app. Monthly and annual Premium subscriptions and the lifetime purchase are handled by Apple's App Store. The app uses StoreKit-verified purchase entitlements to determine Premium access; we do not receive your payment card details.</p>
 
   <h2>Family Sharing security</h2>
   <p>Family Sharing is built on Apple's CloudKit sharing, the same mechanism behind shared iCloud notes and albums. It is designed so that access control is enforced by iCloud itself, not by the app's interface:</p>
@@ -150,7 +150,7 @@ footer p { font-size: 12px; color: var(--text-tertiary); margin-top: 8px; }
   <p>These passcodes are <strong>not security credentials</strong> in the traditional sense. They are family-level access controls designed to keep siblings honest, not to protect against sophisticated attackers. A determined user with physical access to an unlocked device could bypass them. Device-level security (device passcode, Face ID, Touch ID) is the real security boundary.</p>
 
   <h2>Dependencies and supply chain</h2>
-  <p>AllowanceKit uses <strong>only first-party Apple frameworks</strong>: SwiftUI, Core Data, CloudKit, and Security (Keychain). There are no third-party dependencies, no CocoaPods, no Swift packages from external sources. This eliminates supply-chain attack vectors entirely.</p>
+  <p>AllowanceKit uses <strong>only first-party Apple frameworks</strong>: SwiftUI, Core Data, CloudKit, StoreKit, and Security (Keychain). There are no third-party dependencies, no CocoaPods, no Swift packages from external sources. This eliminates supply-chain attack vectors entirely.</p>
 
   <h2>Website security</h2>
   <p>This website is a static site with no backend, no database, no JavaScript that processes user data, and no cookies. Fonts are self-hosted. No third-party requests are made. The site is served over HTTPS (enforced by the .app TLD, which is on the HSTS preload list).</p>
@@ -166,7 +166,7 @@ footer p { font-size: 12px; color: var(--text-tertiary); margin-top: 8px; }
   <p>If you have any questions about our security practices, please contact us at <strong>hello&#64;allowancekit.app</strong>.</p>
 </div>
 <footer>
-  <a href="/">&larr; Back to AllowanceKit</a> &middot; <a href="/support">Support</a> &middot; <a href="/privacy">Privacy</a>
+  <a href="/">&larr; Back to AllowanceKit</a> &middot; <a href="/support">Support</a> &middot; <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a>
   <p>&copy; 2026 AllowanceKit</p>
 </footer>
 </body>
