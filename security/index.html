@@ -94,7 +94,7 @@ footer p { font-size: 12px; color: var(--text-tertiary); margin-top: 8px; }
 </nav>
 <div class="container">
   <h1>Security</h1>
-  <p class="updated">Last updated: September 24, 2026</p>
+  <p class="updated">Last updated: September 27, 2026</p>
 
   <div class="highlight">
     <p>AllowanceKit does not operate a backend. Allowance data stays on your family's devices and in Apple's iCloud; Apple handles Premium purchases and subscription billing.</p>
@@ -128,6 +128,7 @@ footer p { font-size: 12px; color: var(--text-tertiary); margin-top: 8px; }
   <p><strong>No server or database.</strong> There is no backend system that could be compromised. We don't operate infrastructure.</p>
   <p><strong>No API endpoints.</strong> There are no web-facing services to exploit. The app uses Apple's iCloud and App Store services.</p>
   <p><strong>No third-party SDKs.</strong> No analytics (Firebase, Mixpanel), no crash reporting (Sentry, Crashlytics), no advertising SDKs. Zero third-party code that could introduce vulnerabilities or exfiltrate data.</p>
+  <p><strong>Shared editing limits.</strong> The updated app checks the owner's synced per-child access expiry as well as CloudKit sharing permission before allowing edits. A received subscription expiry is enforced offline. This plan restriction is enforced by the app; it does not replace CloudKit permissions. All editing devices need the updated app to follow it.</p>
   <p><strong>No payment processing.</strong> AllowanceKit tracks virtual allowance balances. No bank accounts, credit cards, or real money flows through the app. Monthly and annual Premium subscriptions and the lifetime purchase are handled by Apple's App Store. The app uses StoreKit-verified purchase entitlements to determine Premium access; we do not receive your payment card details.</p>
 
   <h2>Family Sharing security</h2>

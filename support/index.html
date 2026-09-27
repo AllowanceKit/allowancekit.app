@@ -148,7 +148,7 @@ footer p { font-size: 12px; color: var(--text-tertiary); margin-top: 8px; }
   </details>
   <details class="faq-item">
     <summary class="faq-q">What happens when my subscription expires?</summary>
-    <div class="faq-a-inner">Without another valid Premium purchase, the app returns to free-tier feature limits. Your existing children, goals and transactions are not deleted. You can still export your data. An existing lifetime purchase continues to unlock Premium even if a subscription expires.</div>
+    <div class="faq-a-inner">Without another valid Premium purchase, your <strong>first-created child</strong> stays editable. Additional children become read-only: you can view their balances, goals and history, but cannot add money, log spending, move money, edit their details or change transactions and goals. Their automatic allowances pause too. You can still create backups, export data and delete a child you own after confirmation. Renewing Premium or buying lifetime restores access, but <strong>allowances from paused periods are not added later</strong>. Existing lifetime owners keep Premium when a subscription expires.</div>
   </details>
   <details class="faq-item">
     <summary class="faq-q">Can I buy lifetime while subscribed?</summary>
@@ -293,15 +293,10 @@ footer p { font-size: 12px; color: var(--text-tertiary); margin-top: 8px; }
       Rule of thumb: same Apple&nbsp;ID &rarr; invite code. Their own Apple&nbsp;ID &rarr; Family Sharing.
     </div></div>
   </div>
-  <div class="faq-item">
-    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-      Can both parents manage allowances?
-      <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
-    </div>
-    <div class="faq-a"><div class="faq-a-inner">
-      Yes &mdash; each parent uses their own iCloud account. Go to <strong>Settings &gt; Family Sharing</strong>, tap a child, choose <strong>Full access</strong>, enter their iCloud email or phone number, and have them scan the QR code (or send them an invite link). They get full access: add money, log spending, edit anything, with changes syncing both ways. Invite them once per child. The inviting parent needs Premium; <strong>accepting is free</strong>. (Two parents sharing one iCloud account also still works &mdash; that's just ordinary sync.)
-    </div></div>
-  </div>
+  <details class="faq-item">
+    <summary class="faq-q">Can both parents manage allowances?</summary>
+    <div class="faq-a-inner">Yes &mdash; each parent uses their own iCloud account. Go to <strong>Settings &gt; Family Sharing</strong>, tap a child, choose <strong>Full access</strong>, enter their iCloud email or phone number, and have them scan the QR code (or send them an invite link). They can add money, log spending and edit eligible children, with changes syncing both ways. Invite them once per child. The inviting parent needs Premium; <strong>accepting is free</strong>. Shared editing follows the owning parent's plan and first-created child, not the invited parent's purchase or child order. When the owner's Premium expires, additional children become read-only for both parents. Automatic allowances are processed only on the owner's devices. (Two parents sharing one iCloud account also still works &mdash; that's just ordinary sync.)</div>
+  </details>
   <div class="faq-item">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
       I switched phones. Where's my data?
@@ -313,15 +308,10 @@ footer p { font-size: 12px; color: var(--text-tertiary); margin-top: 8px; }
   </div>
 
   <h2><span class="section-badge" style="background: var(--periwinkle-tint); color: var(--periwinkle-dark);">Allowance and transactions</span></h2>
-  <div class="faq-item">
-    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-      I didn't open the app for a few weeks. Did my child miss their allowance?
-      <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
-    </div>
-    <div class="faq-a"><div class="faq-a-inner">
-      No. AllowanceKit has a <strong>smart catch-up</strong> feature. When you open the app, it calculates all missed deposits and adds them with the correct historical dates. Your child's balance will always be accurate regardless of how often you open the app.
-    </div></div>
-  </div>
+  <details class="faq-item">
+    <summary class="faq-q">I didn't open the app for a few weeks. Did my child miss their allowance?</summary>
+    <div class="faq-a-inner">No. When the owning parent opens AllowanceKit, <strong>smart catch-up</strong> adds eligible missed deposits with their scheduled dates. On the free plan, only the first-created owned child receives automatic allowances. Deposits paused for additional children during a Premium lapse are skipped, even after renewal or a lifetime purchase. Opening the app on an invited parent's device does not process automatic allowances.</div>
+  </details>
   <div class="faq-item">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
       How do I log a purchase my child made?
@@ -359,6 +349,15 @@ footer p { font-size: 12px; color: var(--text-tertiary); margin-top: 8px; }
     </div></div>
   </div>
 
+  <details class="faq-item">
+    <summary class="faq-q">Why is a shared child read-only?</summary>
+    <div class="faq-a-inner">Editing needs both Full access sharing permission and eligibility under the owning parent's plan. If the child's access status has not arrived yet, ask that parent to open the latest AllowanceKit and let iCloud sync on both devices. After the owner's Premium expires, additional children stay read-only until they renew or buy lifetime and the update syncs. A received subscription expiry also applies offline. You do not need a separate subscription to edit an eligible shared child. Everyone who edits the family should update the app.</div>
+  </details>
+  <details class="faq-item">
+    <summary class="faq-q">Can I restore a manual or automatic backup?</summary>
+    <div class="faq-a-inner">Yes. Use <strong>Settings &gt; Import Data Backup</strong> for a manual file, or choose a saved backup under <strong>Settings &gt; Automatic Backups</strong>. Restoring replaces your owned family's current data with the saved snapshot, including children, buckets, transactions, goals and earned stickers. Incoming shared children are left untouched. Review the confirmation before continuing. <strong>Restoring a backup with more than one owned child requires Premium</strong>; a single-child backup can be restored on the free plan. Backup creation and export remain free.</div>
+  </details>
+
   <div class="contact-card">
     <h3>Still need help?</h3>
     <p>We're a small team and we read every email. Send us a note and we'll get back to you as quickly as we can.</p>
@@ -373,7 +372,7 @@ footer p { font-size: 12px; color: var(--text-tertiary); margin-top: 8px; }
 </footer>
 
 <script>
-document.querySelectorAll('.faq-item').forEach(item => {
+document.querySelectorAll('.faq-item:not(details)').forEach(item => {
   item.querySelector('.faq-q').addEventListener('keydown', e => {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); item.classList.toggle('open'); }
   });
