@@ -412,6 +412,11 @@ nav .container {
 .premium-plan > div { white-space: nowrap; }
 .premium-plan small { display: block; font-size: 11px; color: var(--periwinkle-dark); margin-top: 4px; }
 
+.pricing-faq { max-width: 800px; margin: 32px auto 0; }
+.pricing-faq details { padding: 16px 0; border-bottom: 1px solid var(--border); }
+.pricing-faq summary { cursor: pointer; font-weight: 600; color: var(--text-primary); }
+.pricing-faq p { margin-top: 12px; font-size: 14px; line-height: 1.75; color: var(--text-secondary); }
+
 /* ─── PRIVACY ─── */
 .privacy-section {
   padding: 60px 0;
@@ -578,7 +583,7 @@ footer .container { display: flex; flex-direction: column; align-items: center; 
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         </div>
         <h3>Set it and forget it</h3>
-        <p>Choose an amount, pick a schedule, and AllowanceKit deposits automatically every week, fortnight, or month. Catches up on eligible deposits when you next open the app.</p>
+        <p>Choose an amount and a weekly, fortnightly or monthly schedule. When the parent who created the child opens the app, AllowanceKit adds eligible deposits automatically, including any missed while the app was closed.</p>
       </div>
       <div class="feature-card fc-lavender">
         <div class="feature-icon">
@@ -599,7 +604,7 @@ footer .container { display: flex; flex-direction: column; align-items: center; 
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4-3-9s1.34-9 3-9"/></svg>
         </div>
         <h3>The whole family, in sync</h3>
-        <p>iCloud keeps every device up to date &mdash; yours, the other parent's, and the kids'. Scan a QR code to invite them, each with their own Apple&nbsp;ID. Parents manage together; kids can only look.</p>
+        <p>iCloud keeps every device up to date &mdash; yours, the other parent's, and the kids'. Scan a QR code to invite them, each with their own Apple&nbsp;ID. Parents manage together under the owning parent's plan, with no separate subscription needed for invited parents. Kids can only look.</p>
       </div>
       <div class="feature-card fc-periwinkle">
         <div class="feature-icon">
@@ -646,7 +651,7 @@ footer .container { display: flex; flex-direction: column; align-items: center; 
       <div class="step">
         <div class="step-num">4</div>
         <h3>Done. Really.</h3>
-        <p>Allowances deposit automatically. Kids check their balance. You get on with your day.</p>
+        <p>Open the app on the owning parent's device to catch up on eligible allowances automatically. Kids check their balance. You get on with your day.</p>
       </div>
     </div>
   </div>
@@ -704,6 +709,17 @@ footer .container { display: flex; flex-direction: column; align-items: center; 
         </div>
         <a href="https://apps.apple.com/app/id6761007578" class="btn-download-lg">Upgrade to Premium</a>
       </div>
+    </div>
+    <div class="pricing-faq">
+      <details>
+        <summary>What happens when Premium ends?</summary>
+        <p>Your first-created child stays editable. Additional children become read-only for you and invited parents, and their automatic allowances pause. Their balances, goals and history stay available. Renewing Premium or buying lifetime restores access, but paused allowances are not added later. Existing lifetime owners keep Premium without subscribing.</p>
+      </details>
+      <details>
+        <summary>Does each parent need Premium?</summary>
+        <p>No. The parent who sends Family Sharing invites needs Premium; accepting an invite is free. Invited parents with Full access can manage eligible children under the owning parent's plan. Only the owning parent's devices process automatic allowances.</p>
+      </details>
+      <p><a href="/support#premium">More about Premium and subscriptions &rarr;</a></p>
     </div>
   </div>
 </section>
