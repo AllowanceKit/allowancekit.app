@@ -44,7 +44,6 @@ p { margin: 0 0 16px; }
 .card:hover { border-color: #7B8FD4; }
 .card p { color: var(--muted); font-size: 15px; margin: 8px 0 16px; }
 .card .read { font-size: 14px; font-weight: 600; color: var(--accent); }
-.featured { border-color: #C6CEE7; background: var(--tint); }
 .screenshots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; max-width: 650px; margin: 28px auto; }
 figure { margin: 0; min-width: 0; }
 figure img { display: block; width: 100%; height: auto; border-radius: 22px; border: 1px solid var(--border); background: white; }
