@@ -489,6 +489,24 @@ footer .container { display: flex; flex-direction: column; align-items: center; 
   .btn-download { padding: 7px 12px; font-size: 13px; }
   .btn-download-text { display: none; }
 }
+/* Interactive preview builds on the static phone above. */
+.demo-ready { animation: none; transform: none; width: min(300px, calc(100vw - 48px)); max-width: 100%; }
+#app-demo [hidden] { display: none; }
+.demo-ready button { font: inherit; cursor: pointer; }
+.demo-ready button:focus-visible { outline: 3px solid var(--periwinkle-dark); outline-offset: 3px; }
+.demo-toolbar { padding: 0 14px 12px; display: flex; gap: 6px; }
+.demo-toolbar button { flex: 1; min-height: 44px; border: 1px solid var(--border); border-radius: 10px; background: white; color: var(--text-primary); font-size: 12px; }
+.demo-toolbar button[aria-pressed="true"] { background: var(--periwinkle-tint); border-color: var(--periwinkle-dark); }
+.demo-ready .phone-card-sub, .demo-ready .phone-bucket-label { font-size: 12px; }
+.demo-ready .phone-bucket-val { font-size: 14px; }
+.demo-task { margin: 14px; padding: 14px; background: var(--mint-tint, #EDF8F2); border-radius: 12px; font-size: 13px; }
+.demo-task strong { display: block; margin-bottom: 4px; }
+.demo-task button { width: 100%; min-height: 44px; margin-top: 10px; border: 0; border-radius: 10px; background: var(--periwinkle-dark); color: white; font-weight: 600; font-size: 13px; }
+.demo-task button:disabled { background: #E1E9E5; color: #355745; cursor: default; }
+.hero .demo-ready .demo-message { margin: 12px 16px 0; min-height: 60px; font-size: 13px; line-height: 1.5; color: var(--text-secondary); text-align: left; }
+.demo-footer { padding: 8px 14px 16px; display: flex; align-items: center; justify-content: space-between; font-size: 11px; color: var(--text-secondary); }
+.demo-footer button { min-height: 44px; border: 0; background: transparent; color: var(--periwinkle-dark); text-decoration: underline; font-size: 12px; }
+@media (prefers-reduced-motion: reduce) { .phone-frame { animation: none; transform: none; } }
 </style>
 </head>
 <body>
@@ -534,22 +552,27 @@ footer .container { display: flex; flex-direction: column; align-items: center; 
       </div>
     </div>
     <div class="hero-visual anim anim-d3">
-      <div class="phone-frame" role="img" aria-label="AllowanceKit app screenshot showing parent dashboard with two children Lily and Max, their allowance balances, Save, Spend, Give buckets, and a bike savings goal in progress">
+      <div id="app-demo" class="phone-frame" role="img" aria-label="AllowanceKit app screenshot showing parent dashboard with two children Lily and Max, their allowance balances, Save, Spend, Give buckets, and a bike savings goal in progress">
         <div class="phone-status"><span>9:41</span><span></span></div>
-        <div class="phone-nav"><div class="phone-nav-title">AllowanceKit</div></div>
+        <div class="phone-nav"><div class="phone-nav-title" id="demo-title">AllowanceKit</div></div>
+        <div class="demo-toolbar" id="demo-views" role="group" aria-label="Preview mode" hidden>
+          <button type="button" id="demo-parent" aria-pressed="true">Parent view</button>
+          <button type="button" id="demo-child" aria-pressed="false">Lily’s view</button>
+        </div>
         <div class="phone-card" style="background: var(--sky-tint);">
           <div class="phone-avatar" style="background: var(--sky);">L</div>
           <div>
             <div class="phone-card-name">Lily</div>
             <div class="phone-card-sub">$10/wk, Saturdays</div>
           </div>
-          <div class="phone-card-bal" style="color: var(--sky-dark);">$47.50</div>
+          <div class="phone-card-bal" style="color: var(--sky-dark);" id="demo-balance">$47.50</div>
         </div>
         <div class="phone-buckets">
-          <div class="phone-bucket" style="background: var(--sky-tint);"><div class="phone-bucket-label" style="color: var(--sky-dark);">🚲 Save</div><div class="phone-bucket-val" style="color: var(--sky-dark);">$23.50</div><div style="margin-top:5px;height:4px;border-radius:2px;background:rgba(255,255,255,0.7);"><div style="width:24%;height:4px;border-radius:2px;background:var(--sky-dark);"></div></div></div>
+          <div class="phone-bucket" style="background: var(--sky-tint);"><div class="phone-bucket-label" style="color: var(--sky-dark);">🚲 Save</div><div class="phone-bucket-val" style="color: var(--sky-dark);" id="demo-save">$23.50</div><div style="margin-top:5px;height:4px;border-radius:2px;background:rgba(255,255,255,0.7);"><div id="demo-progress" style="width:23.5%;height:4px;border-radius:2px;background:var(--sky-dark);"></div></div></div>
           <div class="phone-bucket" style="background: var(--lavender-tint);"><div class="phone-bucket-label" style="color: var(--lavender-dark);">Spend</div><div class="phone-bucket-val" style="color: var(--lavender-dark);">$18.00</div></div>
           <div class="phone-bucket" style="background: var(--rose-tint);"><div class="phone-bucket-label" style="color: var(--rose-dark);">Give</div><div class="phone-bucket-val" style="color: var(--rose-dark);">$6.00</div></div>
         </div>
+        <div id="demo-max">
         <div class="phone-card" style="background: var(--lavender-tint);">
           <div class="phone-avatar" style="background: var(--lavender);">M</div>
           <div>
@@ -563,7 +586,21 @@ footer .container { display: flex; flex-direction: column; align-items: center; 
           <div class="phone-bucket" style="background: var(--lavender-tint);"><div class="phone-bucket-label" style="color: var(--lavender-dark);">Spend</div><div class="phone-bucket-val" style="color: var(--lavender-dark);">$8.50</div></div>
           <div class="phone-bucket" style="background: var(--rose-tint);"><div class="phone-bucket-label" style="color: var(--rose-dark);">Give</div><div class="phone-bucket-val" style="color: var(--rose-dark);">$3.50</div></div>
         </div>
-        <div class="phone-km">Switch to kid mode</div>
+        </div>
+        <div class="phone-km" id="demo-fallback">Switch to kid mode</div>
+        <div id="demo-controls" hidden>
+          <div class="demo-task" id="demo-deposit">
+            <strong>A little extra for Lily</strong>
+            Chores bonus · $5.00 to Save
+            <button type="button" id="demo-add">Add $5 bonus</button>
+          </div>
+          <div class="demo-task" id="demo-goal" hidden>
+            <strong>🚲 My bike fund</strong>
+            <span id="demo-goal-amount">$23.50</span> saved toward $100
+          </div>
+          <p class="demo-message" id="demo-message" role="status" aria-live="polite" aria-atomic="true">Try it: add a bonus, then see it in Lily’s view.</p>
+          <div class="demo-footer"><span>Interactive preview · Sample data</span><button type="button" id="demo-reset">Reset</button></div>
+        </div>
       </div>
     </div>
   </div>
@@ -767,5 +804,6 @@ window.addEventListener('scroll', () => {
 });
 </script>
 
+<script src="/demo.js" defer></script>
 </body>
 </html>
