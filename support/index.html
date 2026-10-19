@@ -133,6 +133,13 @@ footer p { font-size: 12px; color: var(--text-tertiary); margin-top: 8px; }
   <h1>Support</h1>
   <p class="subtitle">Find answers to common questions below. If you need more help, scroll to the bottom to get in touch.</p>
 
+  <section aria-labelledby="guides-heading" class="contact-card">
+    <h2 id="guides-heading" style="margin: 0 0 12px;">Step-by-step guides</h2>
+    <p><a href="/guides/forgot-parent-pin/">Forgot your parent PIN?</a> &mdash; recover access without losing family data.</p>
+    <p><a href="/guides/reset-child-code/">Reset a child’s code</a> &middot; <a href="/guides/invite-another-parent/">Invite another parent</a> &middot; <a href="/guides/back-up-and-restore/">Back up and restore</a></p>
+    <p><a href="/guides/">Browse all guides &rarr;</a></p>
+  </section>
+
   <h2 id="premium"><span class="section-badge" style="background: var(--sky-tint); color: var(--sky-dark);">Premium and subscriptions</span></h2>
   <details class="faq-item">
     <summary class="faq-q">What does Premium cost?</summary>
@@ -246,16 +253,17 @@ footer p { font-size: 12px; color: var(--text-tertiary); margin-top: 8px; }
       <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="faq-a"><div class="faq-a-inner">
-      On the passcode screen, tap <strong>"Forgot code? Ask a parent."</strong> This prompts for the parent PIN, which bypasses the child's code. You can then change or remove their code in Settings &gt; Child Codes.
+      On the passcode screen, tap <strong>"Forgot code? Ask a parent."</strong> This prompts for the parent PIN, which bypasses the child's code. Return to parent mode, then change or remove their code in Settings &gt; Child Codes. <a href="/guides/reset-child-code/">Follow the step-by-step guide</a>.
     </div></div>
   </div>
-  <div class="faq-item">
+  <div class="faq-item" id="parent-mode">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
       How do I get back to parent mode?
       <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="faq-a"><div class="faq-a-inner">
-      On the child's device, tap the version number (bottom right corner) 5 times quickly. This opens the override entry screen. On your parent device, go to <strong>Settings &gt; Parent Override</strong> and generate an override code. Enter this code on the child's device to unlock it back to parent mode. The code expires after 5 minutes for security.
+      <strong>Kid mode on your phone or family tablet:</strong> tap the lock button (or <strong>Parent mode (requires PIN)</strong> on the child picker) and enter your parent PIN. If you forgot it, follow the <a href="/guides/forgot-parent-pin/">PIN recovery guide</a>.<br><br>
+      <strong>A device configured as your child’s own:</strong> tap the version number five times on that device and share its unlock request with your parent device. On the parent device, open <strong>Settings &gt; Approve Child Device Unlock</strong>, paste the request, tap <strong>Approve Unlock</strong> and authenticate. Tap <strong>Check Approval</strong> on the child’s device within five minutes.
     </div></div>
   </div>
 
